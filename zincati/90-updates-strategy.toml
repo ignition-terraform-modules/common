@@ -1,0 +1,8 @@
+# https://coreos.github.io/zincati/usage/updates-strategy/#periodic-strategy
+[updates]
+strategy = "periodic"
+
+[[updates.periodic.window]]
+days = [ "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" ]
+start_time = "08:00"
+length_minutes = 60
