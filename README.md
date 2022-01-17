@@ -1,8 +1,8 @@
-# Ignition CoreOS Base
+# Ignition Terraform Modules Common
 
 ## What is this module for?
 
-This is a Terraform module to generate an ignition configuration that deploys common Fedora CoreOS configurations, systemd units, etc. 
+This is a [Terraform module](https://www.terraform.io/language/modules) to generate a [CoreOS ignition](https://coreos.github.io/ignition/) configuration that deploys common [Fedora CoreOS](https://getfedora.org/en/coreos?stream=stable) configurations, systemd units, etc. 
 
 This module is intended to be merged in with other ignition configurations. For example:
 
@@ -30,6 +30,27 @@ locals {
         ]
       }
     }
+  }
+}
+```
+
+You can then feed ```local.ignition``` into a terrform provider that is deploying a Fedora CoreOS server. For example:
+
+```hcl
+resource "vsphere_virtual_machine" "fedora_coreos_vm" {
+  name = var.hostname
+  resource_pool_id = var.vsphere_resource_pool_id
+  datastore_id = data.vsphere_datastore.datastore.id
+  folder = var.vsphere_folder
+  
+  # ...
+  
+  clone {
+    template_uuid = var.ova_content_library_item_id
+  }
+  extra_config = {
+    "guestinfo.ignition.config.data"          = base64encode(local.ignition)
+    "guestinfo.ignition.config.data.encoding" = "base64"
   }
 }
 ```
