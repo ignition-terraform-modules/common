@@ -25,7 +25,7 @@ locals {
             "source": "data:text/json;base64,${base64encode(module.ignition_coreos_common.ignition)}"
           },
           {
-            "source": "data:text/json;base64,${base64encode(module.ignition_coreos_app.ignition)}"
+            "source": "data:text/json;base64,${base64encode(module.ignition_coreos_traefik.ignition)}"
           }
         ]
       }
@@ -34,7 +34,7 @@ locals {
 }
 ```
 
-You can then feed ```local.ignition``` into a terrform provider that is deploying a Fedora CoreOS server. For example:
+You can then feed ```local.ignition``` into a Terrform provider that is deploying a Fedora CoreOS server. For example:
 
 ```hcl
 resource "vsphere_virtual_machine" "fedora_coreos_vm" {
