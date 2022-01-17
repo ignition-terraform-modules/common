@@ -58,10 +58,10 @@ resource "vsphere_virtual_machine" "fedora_coreos_vm" {
 ## What is in this module?
 
 * Open VM Tools
-** A [systemd unit](open-vm-tools/open-vm-tools.service.tpl) that deploys a container running [Open VM Tools](https://github.com/vmware/open-vm-tools)
+  * A [systemd unit](open-vm-tools/open-vm-tools.service.tpl) that deploys a container running [Open VM Tools](https://github.com/vmware/open-vm-tools)
 * Podman Customization
-** A [custom configuration](podman/87-podman.conflist.tpl) for podman networking
+  * A [custom configuration](podman/87-podman.conflist.tpl) for podman networking
 * Sysctl Customization
-** A [sysctl configuration](sysctl/20-silence-audit.conf) that suppresses debug logs
+  * A [sysctl configuration](sysctl/20-silence-audit.conf) that suppresses debug logs
 * Zincati Customization
-** A [custom upgrade schedule](zincati/90-updates-strategy.toml) for [Zincati](https://github.com/coreos/zincati) auto-upgrades
+  * A [custom upgrade schedule](zincati/90-updates-strategy.toml) for [Zincati](https://github.com/coreos/zincati) auto-upgrades
