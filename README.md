@@ -1,4 +1,4 @@
-# Ignition Terraform Modules Common
+# Ignition Terraform Modules: Common
 
 ## What is this module for?
 
@@ -34,7 +34,7 @@ locals {
 }
 ```
 
-You can then feed ```local.ignition``` into a Terrform provider that is deploying a Fedora CoreOS server. For example:
+You can then feed ```local.ignition``` into a Terraform provider that is deploying a Fedora CoreOS server. For example:
 
 ```hcl
 resource "vsphere_virtual_machine" "fedora_coreos_vm" {
