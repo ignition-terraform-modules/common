@@ -3,4 +3,3 @@ output "ignition" {
   value = data.template_file.ignition.rendered
   sensitive = true
 }
-
