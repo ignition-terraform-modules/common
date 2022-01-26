@@ -7,7 +7,7 @@ data template_file "eighty_seven_podman_conflist" {
 
 data template_file "open_vm_tools_service" {
   template = file("${path.module}/open-vm-tools/open-vm-tools.service.tpl")
-  vars {
+  vars = {
     open_vm_tools_container_image_uri = var.open_vm_tools_container_image_uri
   }
 }
