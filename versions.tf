@@ -1,4 +1,4 @@
 terraform {
   # https://github.com/hashicorp/terraform/releases
-  required_version = "~> 1.1.3"
+  required_version = "~> 1.1.5"
 }
