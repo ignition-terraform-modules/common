@@ -21,6 +21,7 @@ data template_file "ignition" {
     eighty_seven_podman_conflist = base64encode(data.template_file.eighty_seven_podman_conflist.rendered)
     public_ssh_key = chomp(file(pathexpand(var.public_ssh_key_path)))
     hostname = var.hostname
+    ip_unprivileged_port_start = var.ip_unprivileged_port_start
   }
 }
 

@@ -5,6 +5,13 @@
   "storage": {
     "files": [
       {
+        "path": "/etc/sysctl.d/98-ip-unprivileged-port-start.conf",
+        "overwrite": true,
+        "contents": {
+          "source": "data:,${ip_unprivileged_port_start}"
+        }
+      },
+      {
         "path": "/etc/hostname",
         "overwrite": true,
         "contents": {

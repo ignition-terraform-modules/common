@@ -20,3 +20,9 @@ variable "podman_dns_suffix" {
   type = string
   default = "container.domain"
 }
+
+variable "ip_unprivileged_port_start" {
+  description = "The lowest port unprivileged workloads can bind to."
+  type = number
+  default = "1024"
+}
