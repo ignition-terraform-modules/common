@@ -5,19 +5,19 @@
   "storage": {
     "files": [
       {
-        "path": "/etc/sysctl.d/98-ip-unprivileged-port-start.conf",
-        "overwrite": true,
-        "contents": {
-          "source": "data:,${ip_unprivileged_port_start}"
-        }
-      },
-      {
         "path": "/etc/hostname",
         "overwrite": true,
         "contents": {
           "source": "data:,${hostname}"
         },
         "mode": 420
+      },
+      {
+        "path": "/etc/sysctl.d/98-ip-unprivileged-port-start.conf",
+        "overwrite": true,
+        "contents": {
+          "source": "data:,net.ipv4.ip_unprivileged_port_start=${ip_unprivileged_port_start}"
+        }
       },
       {
         "path": "/etc/sysctl.d/20-silence-audit.conf",
@@ -42,6 +42,10 @@
         "contents": {
           "source": "data:text/plain;base64,${eighty_seven_podman_conflist}"
         },
+        "mode": 420
+      },
+      {
+        "path": "/var/lib/systemd/linger/core",
         "mode": 420
       }
     ]

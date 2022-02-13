@@ -65,3 +65,7 @@ resource "vsphere_virtual_machine" "fedora_coreos_vm" {
   * A [sysctl configuration](sysctl/20-silence-audit.conf) that suppresses debug logs
 * Zincati Customization
   * A [custom upgrade schedule](zincati/90-updates-strategy.toml) for [Zincati](https://github.com/coreos/zincati) auto-upgrades
+* [Linger configuration](https://github.com/coreos/fedora-coreos-docs/issues/205) for the core user
+  * Allows running systemd units without logging in 
+* Set the [ip_unprivileged_port_start](https://sysctl-explorer.net/net/ipv4/ip_unprivileged_port_start/) sysctl
+  * Allows unprivileged containers to access ports lower than 1024 
