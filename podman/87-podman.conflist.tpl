@@ -35,7 +35,7 @@
     },
     {
       "type": "dnsname",
-      "domainName": "${podman_dns_suffix}"
+      "domainName": "${dns_name}"
     }
   ]
 }

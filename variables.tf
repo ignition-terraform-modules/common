@@ -15,10 +15,13 @@ variable "open_vm_tools_container_image_uri" {
   default = "ghcr.io/nccurry/open-vm-tools:latest"
 }
 
-variable "podman_dns_suffix" {
-  description = "The DNS suffix of the podman internal network."
-  type = string
-  default = "container.domain"
+variable "podman_cni_configurations" {
+  description = "List of podman CNI configurations"
+  type = list(object({
+    user = string
+    dns_name = string
+  }))
+  default = []
 }
 
 variable "ip_unprivileged_port_start" {
