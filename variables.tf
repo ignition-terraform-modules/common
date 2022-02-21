@@ -4,10 +4,16 @@ variable "hostname" {
   default = "fedora-coreos"
 }
 
-variable "public_ssh_key_path" {
-  description = "File path to an SSH public key used to access virtual machines."
+variable "core_public_ssh_key_path" {
+  description = "Path to the public SSH key for the default core user."
   type = string
   default = "~/.ssh/id_rsa.pub"
+}
+
+variable "additional_users" {
+  description = "List of additional users to create."
+  type = list(string)
+  default = []
 }
 
 variable "open_vm_tools_container_image_uri" {

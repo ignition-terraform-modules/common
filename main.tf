@@ -59,6 +59,12 @@ data template_file "ignition" {
             "mode": 420
           },
     %{~ endfor ~}
+    %{~ for user in var.additional_users ~}
+          {
+            "path": "/var/lib/systemd/linger/${user}",
+            "mode": 420
+          },
+    %{~ endfor ~}
           {
             "path": "/var/lib/systemd/linger/core",
             "mode": 420
@@ -76,11 +82,16 @@ data template_file "ignition" {
       },
       "passwd": {
         "users": [
+    %{~ for user in var.additional_users ~}
           {
-            "name": "core",
+            "name": "${user}"
+          },
+    %{~ endfor ~}
+          {
             "sshAuthorizedKeys": [
-              "${chomp(file(pathexpand(var.public_ssh_key_path)))}"
-            ]
+              "${chomp(file(pathexpand(var.core_public_ssh_key_path)))}"
+            ],
+            "name": "core"
           }
         ]
       }
